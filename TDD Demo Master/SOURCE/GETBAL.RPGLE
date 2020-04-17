@@ -1,0 +1,8 @@
+000002190521**free
+000003190521ctl-opt nomain;
+000004190521
+000005190521/copy TDD_DEMO/source,getbal_h
+000006190521
+000007190521dcl-proc getBalance export;
+000024200415   return 0;
+000026190521end-proc;
