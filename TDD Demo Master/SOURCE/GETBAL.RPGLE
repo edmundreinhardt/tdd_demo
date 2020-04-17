@@ -7,5 +7,8 @@
 000008200417   dcl-pi *n like(balance_t);
 000009200417      id like(id_t) const;
 000010200417   end-pi;
-000011200417   return 0;
-000012200417end-proc;
+000011200417   dcl-f balancef keyed extdesc('TDD_DEMO/BALANCEF_D') extfile('BALANCEF');
+000012200417   dcl-ds ds likerec(balancer) inz;
+000013200417   chain id balancer ds;
+000014200417   return ds.balance;
+000015200417end-proc;
