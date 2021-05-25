@@ -1,9 +1,9 @@
 000001200417**free
 000002200417ctl-opt option(*srcstmt);
 000003200417ctl-opt nomain;
-000004200417ctl-opt bnddir('TDD_DEMO/UNITTEST');
+000004210524ctl-opt bnddir('UNITTEST');
 000005200417/copy rpgunit/rpgunit1,testcase
-000006200417/copy tdd_demo/source,getbal_h
+000006210524/copy source,getbal_h
 000007200417
 000008200417dcl-proc Test_returnZeroForIdNotFound export;
 000009200417  dcl-pi *n extproc(*dclcase) end-pi;
@@ -30,7 +30,7 @@
 000030200417end-proc;
 000031200417
 000032200417dcl-proc create_empty_file;
-000033200417  runCmd ('CRTPF QTEMP/BALANCEF SRCFILE(TDD_DEMO/SOURCE) '
+000033210525  runCmd ('CRTPF QTEMP/BALANCEF SRCFILE(SOURCE) '
 000034200417           + 'SRCMBR(BALANCEF)');
 000035200417  runCmd ('OVRDBF BALANCEF QTEMP/BALANCEF');
 000036200417end-proc;
@@ -40,7 +40,7 @@
 000040200417    id like(id_t) const;
 000041200417    balance like(balance_t) const;
 000042200417  end-pi;
-000043200417  dcl-f balancef usage(*output) extdesc('TDD_DEMO/BALANCEF');
+000043210525  dcl-f balancef usage(*output) extdesc('BALANCEF_D') extfile('BALANCEF');
 000044200417  dcl-ds ds likerec(balancer);
 000045200417  ds.id = id;
 000046200417  ds.balance = balance;
@@ -53,6 +53,6 @@
 000053200417end-proc;
 000054200417
 000055200417dcl-proc teardown export;
-000056200417  callp(e) runCmd ('DLTF QTEMP/BALANCEF');
+000056210525  callp(e) runCmd ('DLTF QTEMP/BALANCEF');
 000057200417end-proc;
 000058200417
